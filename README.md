@@ -8,9 +8,7 @@ Based on [search-extension-core](https://github.com/huhu/search-extension-core)
 
 Input keyword `mdn` in the address bar, press `Space` OR `Tab` to activate the search bar. Then enter any word you want to search, the extension will response the related search results instantly.
 
-# Feature
-
-After active the search extension, you could
+# Command
 
 - input `:help` check command info
 - input `:history` check history
