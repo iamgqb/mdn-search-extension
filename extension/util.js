@@ -18,5 +18,23 @@ const Util = {
 
     parseIndex: (searchMap) => {
         return searchMap.map(({ title }, i) => [i, title.toLowerCase()]);
+    },
+
+    updateIndex: () => {
+        return fetch(`${host}/${locale}/search-index.json`)
+        .then(res => res.json())
+        .then(json => {
+
+            // !! variable in global
+            searchMap = staticIndex;
+            searchIndex = Util.parseIndex(searchMap);
+
+            return Promise.all([
+                storage.setItem('searchIndex', JSON.stringify(json)),
+                storage.setItem('updateTime', new Date().getTime())
+            ])
+        })
+        .then(() => console.log('update index success'))
+        .catch(e => console.error('update Error', e));
     }
 }

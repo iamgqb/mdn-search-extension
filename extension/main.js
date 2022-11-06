@@ -66,3 +66,13 @@ omnibox.addPrefixQueryEvent(":", {
 });
 
 omnibox.addNoCacheQueries(":");
+
+
+storage.getItem('searchIndex').then(lIndex => {
+    if (lIndex) {
+        searchMap = JSON.parse(lIndex);
+        searchIndex = Util.parseIndex(searchMap);
+    } else {
+        Util.updateIndex();
+    }
+});
