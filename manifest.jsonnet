@@ -14,7 +14,6 @@ local json = manifest.new(
   service_worker='service-worker.js',
 )
   .addIcons(icons())
-  .addPermissions(['storage'])
-  .addHostPermissions(['https://developer.mozilla.org/*']);
+  .addPermissions(['storage', 'https://developer.mozilla.org/*']);
 
 json
